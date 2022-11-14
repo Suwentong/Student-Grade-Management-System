@@ -1,6 +1,6 @@
 # Student-Grade-Management-System
 
-1. System introduction
+1.System introduction
 
 Development tools: IDEA2018.2
 
@@ -93,45 +93,45 @@ c. Administrator
 Code:
 
 
-delimiter ;;
+	delimiter ;;
 
-CREATE TRIGGER trig_1 BEFORE DELETE ON s FOR EACH ROW
+	CREATE TRIGGER trig_1 BEFORE DELETE ON s FOR EACH ROW
 
-BEGIN
+	BEGIN
 
- INSERT INTO s_copy (Xh,xm,xb,csrq,jg,sjhm,yxh,Zt,logn,pswd,time)
- 
-VALUES
+	 INSERT INTO s_copy (Xh,xm,xb,csrq,jg,sjhm,yxh,Zt,logn,pswd,time)
 
- (old.Xh, old.xm, old.xb, old.csrq,old.jg,old.sjhm,old.yxh,old.Zt,old.logn,old.pswd,NOW());
- 
---  (1, 1, 1, 1,NOW());
+	VALUES
 
-END;
+	 (old.Xh, old.xm, old.xb, old.csrq,old.jg,old.sjhm,old.yxh,old.Zt,old.logn,old.pswd,NOW());
 
-;;
+	--  (1, 1, 1, 1,NOW());
 
-delimiter ;
+	END;
 
-delimiter ;;
+	;;
 
-CREATE TRIGGER trig_2 BEFORE DELETE ON t FOR EACH ROW
+	delimiter ;
 
-BEGIN
+	delimiter ;;
 
- INSERT INTO t_copy (Gh,xm,xb,csrq,Zc,jbgz,yxh,logn,pswd,time)
- 
-VALUES
+	CREATE TRIGGER trig_2 BEFORE DELETE ON t FOR EACH ROW
 
- (old.Gh, old.xm, old.xb, old.csrq,old.Zc,old.jbgz,old.yxh,old.logn,old.pswd,NOW());
- 
---  (1, 1, 1, 1,NOW());
+	BEGIN
 
-END;
+	 INSERT INTO t_copy (Gh,xm,xb,csrq,Zc,jbgz,yxh,logn,pswd,time)
 
-;;
+	VALUES
 
-delimiter ;
+	 (old.Gh, old.xm, old.xb, old.csrq,old.Zc,old.jbgz,old.yxh,old.logn,old.pswd,NOW());
+
+	--  (1, 1, 1, 1,NOW());
+
+	END;
+
+	;;
+
+	delimiter ;
 
 Function: When deleting a student (teacher) in the s(t) table, the s_copy(t_copy) table will store the deleted element and store the time of its deletion.
 
