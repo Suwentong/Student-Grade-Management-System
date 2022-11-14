@@ -144,89 +144,89 @@ Result:
 Code:
 
 
-DROP PROCEDURE IF EXISTS CalculatePjjd;
+	DROP PROCEDURE IF EXISTS CalculatePjjd;
 
-CREATE PROCEDURE CalculatePjjd (in Xh char(10), in km char(10))
+	CREATE PROCEDURE CalculatePjjd (in Xh char(10), in km char(10))
 
-BEGIN
+	BEGIN
 
-SET @zpcj=(SELECT zpcj FROM e WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km));
+	SET @zpcj=(SELECT zpcj FROM e WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km));
 
--- 0-59 0
+	-- 0-59 0
 
-IF @zpcj BETWEEN 0 AND 59 THEN
+	IF @zpcj BETWEEN 0 AND 59 THEN
 
-		UPDATE e SET pjjd=0 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 60 1
+	UPDATE e SET pjjd=0 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-ELSEIF @zpcj=60 THEN
+	-- 60 1
 
-		UPDATE e SET pjjd=1 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 61-63 1.3
+	ELSEIF @zpcj=60 THEN
 
-ELSEIF @zpcj BETWEEN 61 AND 63 THEN
+	UPDATE e SET pjjd=1 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-		UPDATE e SET pjjd=1.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 64 1.5
+	-- 61-63 1.3
 
-ELSEIF @zpcj=64 THEN
+	ELSEIF @zpcj BETWEEN 61 AND 63 THEN
 
-		UPDATE e SET pjjd=1.5 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 65-67 1.7
+	UPDATE e SET pjjd=1.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-ELSEIF @zpcj BETWEEN 65 AND 67 THEN
+	-- 64 1.5
 
-		UPDATE e SET pjjd=1.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 68-71 2
+	ELSEIF @zpcj=64 THEN
 
-ELSEIF @zpcj BETWEEN 68 AND 71 THEN
+	UPDATE e SET pjjd=1.5 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-		UPDATE e SET pjjd=2 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 72-74 2.3
+	-- 65-67 1.7
 
-ELSEIF @zpcj BETWEEN 72 AND 74 THEN
+	ELSEIF @zpcj BETWEEN 65 AND 67 THEN
 
-		UPDATE e SET pjjd=2.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 75-77 2.7
+	UPDATE e SET pjjd=1.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-ELSEIF @zpcj BETWEEN 75 AND 77 THEN
+	-- 68-71 2
 
-		UPDATE e SET pjjd=2.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 78-81 3
+	ELSEIF @zpcj BETWEEN 68 AND 71 THEN
 
-ELSEIF @zpcj BETWEEN 78 AND 81 THEN
+	UPDATE e SET pjjd=2 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-		UPDATE e SET pjjd=3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 82-84 3.3
+	-- 72-74 2.3
 
-ELSEIF @zpcj BETWEEN 82 AND 84 THEN
+	ELSEIF @zpcj BETWEEN 72 AND 74 THEN
 
-		UPDATE e SET pjjd=3.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 85-89 3.7
+	UPDATE e SET pjjd=2.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-ELSEIF @zpcj BETWEEN 85 AND 89 THEN
+	-- 75-77 2.7
 
-		UPDATE e SET pjjd=3.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
--- 90-100 4
+	ELSEIF @zpcj BETWEEN 75 AND 77 THEN
 
-ELSEIF @zpcj BETWEEN 90 AND 100 THEN
+	UPDATE e SET pjjd=2.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
 
-		UPDATE e SET pjjd=4 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
-		
-END IF;
+	-- 78-81 3
 
-END;
+	ELSEIF @zpcj BETWEEN 78 AND 81 THEN
+
+	UPDATE e SET pjjd=3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
+
+	-- 82-84 3.3
+
+	ELSEIF @zpcj BETWEEN 82 AND 84 THEN
+
+	UPDATE e SET pjjd=3.3 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
+
+	-- 85-89 3.7
+
+	ELSEIF @zpcj BETWEEN 85 AND 89 THEN
+
+	UPDATE e SET pjjd=3.7 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
+
+	-- 90-100 4
+
+	ELSEIF @zpcj BETWEEN 90 AND 100 THEN
+
+	UPDATE e SET pjjd=4 WHERE e.Xh=Xh AND e.kh=(SELECT kh FROM c WHERE c.km=km);
+
+	END IF;
+
+	END;
 
 
 Function: Calculate the corresponding grade point average according to the student's overall grade.
