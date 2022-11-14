@@ -1,0 +1,109 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhtc.dao.AdminDao">
+<!-- 课程 -->
+	<!--课程数据分页 -->
+	<select id="listcourse" resultType="com.hhtc.po.Course">
+		select  *  from  c
+		<if test="start!=null and limit!=null">
+			limit #{start},#{limit}
+		</if>
+	</select>
+	<!-- 获得全部课程信息 -->
+	<select id="coursemanage" resultType="com.hhtc.po.Course">
+		select * from c
+	</select>
+	<!-- 获得选课课程信息 -->
+	<select id="selectedcourse" resultType="com.hhtc.po.Course">
+		select c.kh, c.km, c.xf, c.yxh, t.xm from c, e, t where (e.kh = c.kh) and (t.Gh = e.gh) and ((e.Xh = #{Xh})) and e.zpcj is null
+	</select>
+	<!-- 获得课程成绩信息 -->
+	<select id="coursescore" resultType="com.hhtc.po.Course">
+		select c.kh, c.km, e.pscj, e.kscj, e.zpcj from c, e, s where (e.kh = c.kh) and (s.Xh = e.Xh) and (s.Xh = #{Xh}) and e.zpcj is not null
+	</select>
+<!-- 学生 -->
+	<!--学生数据分页 -->
+	<select id="liststudent" resultType="com.hhtc.po.Student">
+		select  *  from  s
+		<if test="start!=null and limit!=null">
+			limit #{start},#{limit}
+		</if>
+	</select>
+	<!--插入一个学生信息 -->
+	<insert id="addStudent" parameterType="com.hhtc.po.Student">
+		insert into s(logn,pswd,xm,Xh,xb,csrq,jg,sjhm,yxh) values (#{logn},#{pswd},#{xm},#{Xh},#{xb},#{csrq},#{jg},#{sjhm},#{yxh})
+	</insert>
+	<!--学生选课 -->
+	<insert id="selectcourse" parameterType="java.lang.String">
+		insert into e(Xh,kh,xq,gh) values (#{arg2},#{arg0},"201201",#{arg1})
+	</insert>
+	<!--学生退课 -->
+	<delete id="dropcourse" parameterType="java.lang.String">
+		delete from e where kh= #{arg0} and Xh= #{arg1}
+	</delete>
+	<!-- 获得全部学生信息 -->
+	<select id="stumanage" resultType="com.hhtc.po.Student">
+		select * from s
+	</select>
+	<!-- 获得一个学生信息 -->
+	<select id="selectone" parameterType="java.lang.String" resultType="com.hhtc.po.Student">
+		select * from s where Xh= #{Xh}
+	</select>
+	<!-- 获得学生成绩信息 -->
+	<select id="stuscoree" resultType="com.hhtc.po.Student">
+		select e.pjjd, e.kscj, e.zpcj, e.Xh, e.pscj, s.xm, c.km from e, s, c where (s.Xh = e.Xh) and (c.kh = e.kh) and (e.gh= #{Gh})
+	</select>
+	<!-- 删除学生信息 -->
+	<delete id="delstudnet" parameterType="java.lang.String">
+		delete from s where Xh= #{Xh}
+	</delete>
+	<!-- 更新学生信息 -->
+	<update id="updatestu" parameterType="com.hhtc.po.Student">
+		update s set xm= #{xm},
+		pswd= #{pswd},
+		logn=#{logn},
+		xb= #{xb},
+		csrq= #{csrq},
+		jg= #{jg},
+		sjhm= #{sjhm},
+		yxh= #{yxh}
+		where Xh= #{xh}
+	</update>
+	<!--学生名字模糊查询 -->
+	<select id="selectbyname" parameterType="java.lang.String" resultType="com.hhtc.po.Student">
+		select  *  from  student  where stuname like concat('%',#{stuname},'%')
+	</select>
+<!-- 老师 -->
+	<!--插入一个老师信息 -->
+	<insert id="addteacher" parameterType="com.hhtc.po.Teacher">
+		insert into t(logn,pswd,Gh,xm,xb,csrq,Zc,jbgz,yxh)values (#{logn},#{pswd},#{Gh},#{xm},#{xb},#{csrq},#{Zc},#{jbgz},#{yxh})
+	</insert>
+	<!--删除一个老师信息 -->
+	<delete id="delteacher" parameterType="java.lang.String">
+		delete from t where Gh= #{Gh}
+	</delete>
+	<!-- 修改一个老师信息 -->
+	<update id="updatetea" parameterType="com.hhtc.po.Teacher">
+		update t set logn=#{logn},
+		pswd= #{pswd},
+		xm= #{xm},
+		xb= #{xb},
+		csrq= #{csrq},
+		Zc= #{Zc},
+		jbgz= #{jbgz},
+		yxh= #{yxh}
+		where Gh= #{gh}
+	</update>
+	<!-- 查询一个老师信息 -->
+	<select id="selectonetea" parameterType="java.lang.String" resultType="com.hhtc.po.Teacher">
+		select * from t where Gh= #{Gh}
+	</select>
+	<!-- 查询所有老师信息 -->
+	<select id="teamanage" resultType="com.hhtc.po.Teacher">
+		select * from t
+	</select>
+	<!-- 模糊查询老师信息 -->
+	<select id="selectbynametea" parameterType="java.lang.String" resultType="com.hhtc.po.Teacher">
+		select  *  from  teacher  where teaname like concat('%',#{teaname},'%')
+	</select>
+</mapper>
