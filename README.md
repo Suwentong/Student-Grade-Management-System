@@ -12,7 +12,7 @@ Backend: Java + Spring + SpringMVC + Mybatis
 
 Front-end: Layui + JSP + HTML + CSS
 
-2. System functions
+2.System functions
 
   • log in system
 
@@ -40,7 +40,7 @@ c. Administrator
   
   • Teacher management: add, delete, modify, view teacher information
 
-3. System Display
+3.System Display
 
   •log in page
   
@@ -88,7 +88,7 @@ c. Administrator
 
 ![image](https://user-images.githubusercontent.com/118161567/201658412-5c0469b2-deac-4c0a-90c5-fa95a7518a12.png)
 
-4. Triggers
+4.Triggers
 
 Code:
 
@@ -139,7 +139,7 @@ Result:
 
 ![image](https://user-images.githubusercontent.com/118161567/201659018-af50b3fd-8e8c-453f-9a13-527a3b774215.png)
 
-5. Procedure
+5.Procedure
 
 Code:
 
