@@ -8,7 +8,7 @@ Front-end: Layui + JSP + HTML + CSS
 
 2. System functions
 
-  •	log in system
+  • log in system
 
 a. Students
   • Class schedule query 
@@ -30,32 +30,45 @@ c. Administrator
 ![image](https://user-images.githubusercontent.com/118161567/201658158-8e430edb-9a0e-451f-bb22-1913316d3244.png)
  
 a. Students
+
   • Timetable query
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658187-6c6af686-c2fd-4ba7-b054-5a8ec392a8a0.png)
 
   • Course enquiry
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658223-f299f302-c3b6-420e-bd3d-3ad59924d062.png)
 
-  •	Result inquiry
+  • Result inquiry
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658233-8b54a7a9-b03e-4a0d-8663-b57cb241fd81.png)
 
   • Modify system login password
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658248-0816e329-bf93-4b7e-84ff-890e780b750c.png)
 
 b. Teacher
+
   • Enter student grades
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658280-a69ec264-3c02-4852-8259-2b67c4764d5f.png)
 
   • Modify system login password
+  
  ![image](https://user-images.githubusercontent.com/118161567/201658286-ec3166de-7baf-4519-8412-43c59ef83c29.png)
 
 c. Administrator
+
   • Student management
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658317-4827eadc-694b-4a08-99bd-b0ff92627817.png)
+
 ![image](https://user-images.githubusercontent.com/118161567/201658366-c1a74a9d-f41c-4a36-8a24-d7ec8044e06d.png)
  
   • Teacher management
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658396-140f2419-9b0c-4088-818c-f2df69643914.png)
+
 ![image](https://user-images.githubusercontent.com/118161567/201658412-5c0469b2-deac-4c0a-90c5-fa95a7518a12.png)
 
 4. Triggers
