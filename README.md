@@ -1,9 +1,15 @@
 # Student-Grade-Management-System
+
 1. System introduction
+
 Development tools: IDEA2018.2
+
 JDK version: jdk1.8
+
 MySQL version: 8.0.13
+
 Backend: Java + Spring + SpringMVC + Mybatis
+
 Front-end: Layui + JSP + HTML + CSS
 
 2. System functions
@@ -11,22 +17,33 @@ Front-end: Layui + JSP + HTML + CSS
   • log in system
 
 a. Students
+
   • Class schedule query 
+  
   • Grade query
+  
   • Course inquiry 
+  
   • Modify system login password
+  
   • Course selection and withdrawal
 
 b. Teacher
+
   • Enter student grades 
+  
   • Modify system login password
 
 c. Administrator
+
   • Student management: add, delete, modify and view student information
+  
   • Teacher management: add, delete, modify, view teacher information
 
 3. System Display
-  •	log in page
+
+  •log in page
+  
 ![image](https://user-images.githubusercontent.com/118161567/201658158-8e430edb-9a0e-451f-bb22-1913316d3244.png)
  
 a. Students
