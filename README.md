@@ -1,7 +1,7 @@
 # Student-Grade-Management-System
 
-1. System introduction
-
+**1. System introduction
+**
 Development tools: IDEA2018.2
 
 JDK version: jdk1.8
@@ -12,8 +12,8 @@ Backend: Java + Spring + SpringMVC + Mybatis
 
 Front-end: Layui + JSP + HTML + CSS
 
-2. System functions
-
+**2. System functions
+**
   • log in system
 
 a. Students
